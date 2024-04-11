@@ -28,8 +28,9 @@ public class SandwichShop {
         scanner.nextLine();
 
         // Ask the user if they want the sandwich "loaded".
-        System.out.print("Would you like a loaded sandwich? (Yes/No) ");
+        System.out.println("Would you like a loaded sandwich? (Yes/No)");
         loaded = scanner.nextLine();
+
 
         // Ask the user how old they are.
         System.out.print("How old are you? ");
