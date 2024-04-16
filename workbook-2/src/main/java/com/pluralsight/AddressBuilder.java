@@ -5,88 +5,67 @@ public class AddressBuilder {
     // Initalize the scanner.
     static Scanner scanner = new Scanner(System.in);
 
-    static String fullName;
-    static String billingStreet;
-    static String billingCity;
-    static String billingState;
-    static int billingZip;
-    static String shippingStreet;
-    static String shippingCity;
-    static String shippingState;
-    static int shippingZip;
-    static String finalBilling;
-    static String finalShipping;
-
     public static void main(String[] args) {
-        enterName();
-
-        // Call the enterBilling method.
-        enterBilling();
-
-        // Call the enterShipping method.
-        enterShipping();
-
-        // Call the parseBilling method.
-        parseBilling();
-
-        // Call the parseShipping method.
-        parseShipping();
-
-        // Call the printInformation method.
-        printInformation();
-    }
-    public static void enterName(){
+        // Prompt for information
         System.out.println("Please provide the following information:");
-        System.out.print("Full Name: ");
-        fullName = scanner.nextLine();
-    }
-    public static void enterBilling(){
-        System.out.print("\nBilling Street: ");
-        billingStreet = scanner.nextLine();
+        // Name
+        System.out.print("Full name: ");
+        String name = scanner.nextLine();
 
+        // Call StringBuilder methods
+        String billing = billingAddress();
+        System.out.println(" ");
+        String shipping = shippingAddress();
+        System.out.println(" ");
+
+        // Output information
+        System.out.println(name);
+        System.out.println(" ");
+        System.out.println("Billing address: ");
+        System.out.println(billing);
+        System.out.println("Shipping address: ");
+        System.out.println(shipping);
+
+    }
+
+    static String billingAddress() {
+        StringBuilder addressBuilder = new StringBuilder();
+        // Prompt for
+        // Street
+        System.out.println(" ");
+        System.out.print("Billing Street: ");
+        addressBuilder.append(scanner.nextLine().trim()).append("\n");
+        // City
         System.out.print("Billing City: ");
-        billingCity = scanner.nextLine();
-
+        addressBuilder.append(scanner.nextLine().trim()).append(", ");
+        // State
         System.out.print("Billing State: ");
-        billingState = scanner.nextLine();
-
+        addressBuilder.append(scanner.nextLine().trim()).append(" ");
+        // Zip
         System.out.print("Billing Zip: ");
-        billingZip = scanner.nextInt();
-        scanner.nextLine();
-    }
-    public static void enterShipping(){
-        System.out.print("\nShipping Street: ");
-        shippingStreet = scanner.nextLine();
+        addressBuilder.append(scanner.nextLine().trim());
 
+        return addressBuilder.toString();
+    }
+
+    static String shippingAddress(){
+        StringBuilder addressBuilder = new StringBuilder();
+        // Prompt for
+        // Street
+        System.out.println(" ");
+        System.out.print("Shipping Street: ");
+        addressBuilder.append(scanner.nextLine().trim()).append("\n");
+        // City
         System.out.print("Shipping City: ");
-        shippingCity = scanner.nextLine();
-
+        addressBuilder.append(scanner.nextLine().trim()).append(", ");
+        // State
         System.out.print("Shipping State: ");
-        shippingState = scanner.nextLine();
-
+        addressBuilder.append(scanner.nextLine().trim()).append(" ");
+        // Zip
         System.out.print("Shipping Zip: ");
-        shippingZip = scanner.nextInt();
-        scanner.nextLine();
-    }
-    public static void parseBilling(){
+        addressBuilder.append(scanner.nextLine().trim());
 
-        StringBuilder billingBuilder = new StringBuilder();
-
-        billingBuilder.append(billingStreet).append("\n").append(billingCity).append(", ").append(billingState).append(" ").append(billingZip);
-
-        finalBilling = billingBuilder.toString();
-    }
-    public static void parseShipping(){
-        StringBuilder shippingBuilder = new StringBuilder();
-
-        shippingBuilder.append(shippingStreet).append("\n").append(shippingCity).append(", ").append(shippingState).append(" ").append(shippingZip);
-
-        finalShipping = shippingBuilder.toString();
-    }
-    public static void printInformation() {
-        System.out.println("\n" + fullName + "\n");
-        System.out.println("Billing Address:\n" + finalBilling);
-        System.out.println("\nShipping Address:\n" + finalShipping);
+        return addressBuilder.toString();
     }
 
 }
