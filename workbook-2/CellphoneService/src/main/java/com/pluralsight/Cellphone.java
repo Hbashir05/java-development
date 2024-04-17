@@ -16,6 +16,15 @@ public class Cellphone {
         this.carrier = carrier;
         this.owner = owner;
     }
+    //Overloaded Statement
+    public void Cellphone1(){
+        this.serialNumber = 0;
+        this.phoneNumber = "";
+        this.model = "";
+        this.carrier = "";
+        this.owner = "";
+
+    }
     //Get statements allows you to retrieve the statement
     public String getModel() {
         return model;
@@ -58,9 +67,17 @@ public class Cellphone {
         this.serialNumber = serialNumber;
     }
     //This dial function allows the owner to interact with another phone number.
-    public void dial(String phoneNumber){
+    public void dial(String phoneNumber) {
         System.out.print(owner + "'s phone is calling " + phoneNumber);
         System.out.println(" ");
-
     }
+        //Overloaded Statement
+        public void dial(Cellphone cellphone){
+            System.out.println(owner + "'s phone is calling " + cellphone.phoneNumber);
+            System.out.println(" ");
+
+        }
 }
+
+
+
